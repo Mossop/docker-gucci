@@ -1,7 +1,9 @@
 name: Build container
 
 on:
-  workflow_dispatch: {}
+  workflow_dispatch:
+  schedule:
+    - cron: "46 1 * * *"
 
 jobs:
   build-container:
