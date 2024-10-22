@@ -17,8 +17,9 @@ if [ ! -f "$TEMPLATE" ]; then
 fi
 
 DIR=`dirname $TARGET`
-if [ ! -d "$DIR" ]; then
-  echo "Target parent directory does not exist." >&2
+mkdir -p $DIR
+if [ "$?" -ne 0 ]; then
+  echo "Could not create parent directory '${DIR}'." >&2
   exit
 fi
 
